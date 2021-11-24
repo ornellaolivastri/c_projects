@@ -38,7 +38,7 @@ message.o: message.cpp message.h
 # that our makefile does: objetct files and excecutables
 #
 clean: 
-	rm *.o executable_file_created_with_make
+	del *.o, del executable_file_created_with_make.exe
 
 # rm is a command to erase things
 # *.o represents anything that matches an extention .o
