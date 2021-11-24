@@ -13,11 +13,10 @@
 
 all: executable_file_created_with_make 
 
-
 #name_of_the_excecutable: list of objects that will be needed 
 #in the linking fase where all objects create this program
 executable_file_created_with_make: main.o message.o
-	g++ main.o message.o -o executable_file_created_with_make
+	gcc main.o message.o -o executable_file_created_with_make
 #under the excecutable[..] line goes the instruction that will create the excecutable 
 
 
@@ -25,12 +24,12 @@ executable_file_created_with_make: main.o message.o
 
 #the object main.o is created with main.cpp
 main.o: main.c
-	g++ -c main.c
+	gcc -c main.c
 #and this is created with that instruction
 
 #same with this one
 message.o: message.c message.h
-	g++ -c message.c
+	gcc -c message.c
 
 
 # Another common rule is clean. This one errases
