@@ -24,13 +24,13 @@ executable_file_created_with_make: main.o message.o
 #than go the diferent objects and how they will be created -------------------------
 
 #the object main.o is created with main.cpp
-main.o: main.cpp
-	g++ -c main.cpp
+main.o: main.c
+	g++ -c main.c
 #and this is created with that instruction
 
 #same with this one
-message.o: message.cpp message.h
-	g++ -c message.cpp
+message.o: message.c message.h
+	g++ -c message.c
 
 
 # Another common rule is clean. This one errases
