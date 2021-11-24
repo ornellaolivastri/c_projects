@@ -11,7 +11,6 @@
 # Tipicaly, this is done with an "all" recepy, where we list each of the
 # targets that we want to build by default (in this case we only have one).
 
-
 all: executable_file_created_with_make 
 
 
@@ -34,4 +33,13 @@ message.o: message.cpp message.h
 	g++ -c message.cpp
 
 
+# Another common rule is clean. This one errases
+# anything we want. For example, we could want to erase everything
+# that our makefile does: objetct files and excecutables
+#
+clean: 
+	rm *.o executable_file_created_with_make
 
+# rm is a command to erase things
+# *.o represents anything that matches an extention .o
+# executable_file_created_with_make is our only excecutable
