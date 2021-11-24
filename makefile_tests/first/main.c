@@ -1,11 +1,9 @@
-#include "message.h"
 #include <cstdlib>
+#include "message.h"
 
-using namespace std;
 
 int main()
 {
-    message m;
-    m.printMessage(); //definition on message.h file
-    return 0;
+    printMessage(); //definition on message.h file
+    
 }

@@ -1,6 +1,6 @@
 #include <iostream>
 #include "message.h"
 
-void message :: printMessage(){
+void printMessage(){
     printf("Makefile Example\n");
 }
