@@ -1,0 +1,88 @@
+
+link:
+
+https://www.youtube.com/watch?v=gnSok6mbvug
+
+------------------------- YACC -----------------------------------
+
+- en analizador lexico va a analizar palabra por palabra para ver si estan incluidas en el yacc
+
+
+- primero se deben DECLARAR los tokens: simbolos terminales y no terminales
+
+    - los simbolos no terminales son variables, funciones, expresiones, bucles, cosas que cambian
+        Estos se declaran en la zona de en medio del yacc
+
+    - los simbolos terminales son simbolos que no cambian: llaves, parentesis, operadores, tipos de datos, etc. 
+        Estos se declaran en la zona de reglas del yacc (parte inferior)
+
+
+- luego debe definirse la gramatica, en la zona de reglas del yacc (inferior)
+    Esto significa escribir las reglas que deben seguir los simbolos para ser correctos
+    Estas reglas definen la forma en que se combinan los simbolos para formar cada estructura
+    
+    Ejemplo de gramatica para el programa "codigo_fuente":
+
+    ---------------------------------
+    codigo_fuente.c
+    
+
+            #include <stdio.h>
+            #include<string.h>
+
+            #define MAX 10
+
+            int main(){
+
+                int numero[10], arreglos[MAX];
+                int i, val, suma=0;
+
+                for(i=0; i <10; i++){
+                    val = i * 10;
+                    numero[i] = val;
+                    suma = suma + val;
+                }
+
+                return 0;
+            }
+    ---------------------------------
+    
+    ---------------------------------
+    Gramatica
+    
+
+    INICIO: INCLUDES FUNCION_PRINCIPAL;
+
+	INCLUDES: S_NUMERAL P_RESERVADA S_MENOR LIBRERIAS S_MAYOR|S_NUMERAL P_DEFINE LETRA NUMERO;
+
+	FUNCION_PRINCIPAL: TIPO_DATO P_RESERVADA A_PARENTESIS C_PARENTESIS A_LLAVE EXPRESIONES C_LLAVE;
+	
+	EXPRESIONES: DECLARACIONES_VARIABLES BUCLE_FOR P_RETURN NUMERO;
+	
+	DECLARACIONES_VARIABLES: VARIABLE | VARIABLE DECLARACIONES_VARIABLES;
+	
+	VARIABLE: TIPO_DATO LETRA A_CORCHETE NUMERO C_CORCHETE S_COMA LETRA A_CORCHETE LETRA C_CORCHETE FIN_SENTENCIA
+			| TIPO_DATO LETRA S_COMA  LETRA S_COMA LETRA S_IGUAL NUMERO FIN_SENTENCIA;
+	
+	BUCLE_FOR: P_FOR A_PARENTESIS LETRA S_IGUAL NUMERO FIN_SENTENCIA LETRA S_MAYOR FIN_SENTENCIA LETRA P_INCREMENTO C_PARENTESIS A_LLAVE 
+		LETRA S_IGUAL LETRA OPERADOR NUMERO FIN_SENTENCIA
+		LETRA A_CORCHETE LETRA C_CORCHETE S_IGUAL LETRA FIN_SENTENCIA
+		LETRA S_IGUAL LETRA OPERADOR LETRA FIN_SENTENCIA
+		C_LLAVE;
+
+    (el return esta definido en EXPRESIONES)
+    ---------------------------------
+
+
+    ------------------------- LEX -----------------------------------
+
+aqui se DEFINEN los tokens TERMINALES
+
+- zona de declaraciones
+- zona de expresiones regualres
+- zona de reglas
+
+se debe incluir el header de yacc que posee los tokens terminales y no terminales, y las reglas gramaticales
+(para el analizador lexico)
+
+NOTA: DEBE ESTAR COMPILADO EL YACC PARA COMPILAR EL LEX
