@@ -1,19 +1,22 @@
+#  ---------------------     MAKEFILE -----------------------------
 
-#name_of_the_excecutable: list of objects that will be needed 
-#in the linking fase where all objects create this program
-holamundo_created_with_make: holamundo.o 
-	g++ holamundo.o -o holamundo_created_with_make
-#under the excecutable[..] line goes the instruction that will create the excecutable 
+all: holamundo 
+
+holamundo: holamundo.o
+	gcc holamundo.o -o holamundo
 
 
 #than go the diferent objects and how they will be created -------------------------
 
-#the object holamundo.o is created with holamundo.c
+#the object main.o is created with main.cpp
 holamundo.o: holamundo.c
-	g++ -c holamundo.c
-#and this is created with that instruction
+	gcc -c holamundo.c
 
-#same with this one
-#message.o: message.c message.h
-#	g++ -c message.c
 
+clean: 
+	del *.o, del holamundo.exe
+
+# rm is a command to erase things
+# *.o represents anything that matches an extention .o
+# executable_file_created_with_make is our only excecutable
+# IMPORTANT NOTE: NEVER LEAVE A SPACE AFTER THE * BECAUSE IT'LL DELETE ALL YOUR FILES
