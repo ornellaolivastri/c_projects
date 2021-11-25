@@ -79,7 +79,10 @@ https://www.youtube.com/watch?v=gnSok6mbvug
 aqui se DEFINEN los tokens TERMINALES
 
 - zona de declaraciones
-- zona de expresiones regualres
+- zona de expresiones regualres que definen por ejemplo numeros y letras
+    ej : 
+        DIGITO [0-9]+
+        LETRA  [a-zA-Z]+
 - zona de reglas
 
 se debe incluir el header de yacc que posee los tokens terminales y no terminales, y las reglas gramaticales
