@@ -3,9 +3,12 @@
 	#include "y.tab.h"
 	#include<stdio.h>
 %}
+
 DIGITO [0-9]+
 LETRA  [a-zA-Z]+
+
 %%
+
 "include"|"Include"|"INCLUDE"|"main"|"MAIN"|"Main"|"VOID"|"void"|"Void"|"printf"|"scanf"		{return P_RESERVADA;}
 "define"|"DEFINE"											{return P_DEFINE;}
 "return"|"Return"|"RETURN"										{return P_RETURN;}
